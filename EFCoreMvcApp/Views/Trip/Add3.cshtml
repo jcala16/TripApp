@@ -1,0 +1,60 @@
+@model TripsApp.Models.Trip
+@{
+ViewData["Title"] = "Add Trip - Page 3";
+}
+<h1>Add Trip - Activities</h1>
+@if (ViewBag.SubHeader != null)
+{
+<h2>@ViewBag.SubHeader</h2>
+}
+<hr />
+<div class="row">
+<div class="col-md-4">
+<form asp-action="Add3">
+
+<div asp-validation-summary="ModelOnly" class="text-
+danger"></div>
+
+<div class="form-group">
+<label asp-for="Activity1" class="control-label">
+</label>
+<input asp-for="Activity1" class="form-control" />
+
+<span asp-validation-for="Activity1" class="text-
+danger"></span>
+
+</div>
+<div class="form-group">
+<label asp-for="Activity2" class="control-label">
+</label>
+<input asp-for="Activity2" class="form-control" />
+
+<span asp-validation-for="Activity2" class="text-
+danger"></span>
+
+</div>
+<div class="form-group">
+<label asp-for="Activity3" class="control-label">
+</label>
+<input asp-for="Activity3" class="form-control" />
+
+<span asp-validation-for="Activity3" class="text-
+danger"></span>
+
+</div>
+<div class="form-group mt-3"> < !-- Added margin-top for
+better spacing -->
+
+<input type="submit" value="Save" class="btn btn-
+primary" />
+
+<a asp-action="Cancel" class="btn btn-
+secondary">Cancel</a>
+
+</div>
+</form>
+</div>
+</div>
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

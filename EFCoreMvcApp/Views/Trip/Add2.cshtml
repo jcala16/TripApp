@@ -1,0 +1,55 @@
+@model TripsApp.Models.Trip
+@{
+ViewData["Title"] = "Add Trip - Page 2";
+}
+<h1>Add Trip - Accommodations</h1>
+@if (ViewBag.SubHeader != null)
+{
+<h2>@ViewBag.SubHeader</h2>
+}
+<hr />
+<div class="row">
+<div class="col-md-4">
+<form asp-action="Add2">
+
+<div asp-validation-summary="ModelOnly" class="text-
+danger"></div>
+
+<div class="form-group">
+
+<label asp-for="AccommodationPhone" class="control-
+label"></label>
+
+<input asp-for="AccommodationPhone" class="form-
+control" />
+
+<span asp-validation-for="AccommodationPhone"
+class="text-danger"></span>
+</div>
+<div class="form-group">
+
+<label asp-for="AccommodationEmail" class="control-
+label"></label>
+
+<input asp-for="AccommodationEmail" class="form-
+control" />
+
+<span asp-validation-for="AccommodationEmail"
+class="text-danger"></span>
+</div>
+<div class="form-group mt-3"> < !-- Added margin-top for
+better spacing -->
+
+<input type="submit" value="Next" class="btn btn-
+primary" />
+
+<a asp-action="Cancel" class="btn btn-
+secondary">Cancel</a>
+
+</div>
+</form>
+</div>
+</div>
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

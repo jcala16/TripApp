@@ -1,0 +1,41 @@
+﻿@model List<TripsApp.Models.Trip>
+@{
+ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+<h1 class="display-4">Trip Data</h1>
+@if (TempData["Message"] != null)
+{
+<div class="alert alert-success">
+@TempData["Message"]
+</div>
+}
+<p>
+
+<a asp-controller="Trip" asp-action="Add1" class="btn btn-
+primary">Add Trip</a>
+
+</p>
+<table class="table">
+<thead>
+<tr>
+<th>Destination</th>
+<th>Accommodation</th>
+<th>Start Date</th>
+<th>End Date</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+@foreach (var trip in Model)
+{
+<tr>
+<td>@trip.Destination</td>
+<td>@trip.Accommodation</td>
+<td>@trip.StartDate.ToShortDateString()</td>
+<td>@trip.EndDate.ToShortDateString()</td>
+</tr>
+}
+</tbody>
+</table>
+</div>
